@@ -67,7 +67,7 @@ exec() {
 }
 
 run() {
-    $DOCKER_COMPOSE run --rm -e uid=$UID -w /usr/src/app "$@"
+    $DOCKER_COMPOSE run --rm -e uid=$UID -w //usr/src/app "$@"
 }
 
 serverless() {
