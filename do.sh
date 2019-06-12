@@ -51,7 +51,7 @@ init() {
 }
 
 test() {
-   run -e 
+   run python py.test "$@" 
 }
 
 shell() {
