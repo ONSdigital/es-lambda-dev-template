@@ -1,6 +1,6 @@
-FROM node:10.15.3
+FROM node:10.16.0
 USER root
-RUN npm install -g serverless
+RUN npm install -g serverless@1.44.1
 RUN set -eux; \
   apt-get update; \
   apt-get install -y gosu; \
