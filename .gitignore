@@ -49,3 +49,5 @@
  # Meta files
  *.DS_Store
 
+# deployment / artifacts
+.serverless/
