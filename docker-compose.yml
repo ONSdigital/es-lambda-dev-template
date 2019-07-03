@@ -4,8 +4,11 @@ services:
     build:
       dockerfile: docker/images/lambda-python/Dockerfile
       context: .
+      args:
+        HUID: ${HUID}
     volumes:
       - .:/usr/src/app
+      - pre_commit_cache:/home/dockeruser/.cache/pre-commit
   serverless:
     build:
       dockerfile: docker/images/lambda-serverless/Dockerfile
@@ -19,3 +22,8 @@ services:
     build:
       dockerfile: docker/images/lambci/Dockerfile
       context: .
+    volumes:
+      - .:/usr/src/app
+volumes:
+  pre_commit_cache:
+    external: false
