@@ -62,7 +62,7 @@ EOF
 
 
 test() {
-   run python py.test "$@" 
+   run python -e PYTHONPATH=/usr/src/app py.test "$@" 
 }
 
 shell() {
