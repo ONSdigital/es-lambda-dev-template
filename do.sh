@@ -54,7 +54,7 @@ init() {
    cat << EOF >> .git/hooks/pre-commit
 #!/bin/sh
 DOPATH=$( cd "$(dirname "$0")"; cd ../..; pwd -P )
-./do.sh run python python /usr/src/app/.git/hooks/pre-commit-docker.py 
+./do.sh run python python /usr/src/app/.git/hooks/pre-commit-docker.py
 EOF
   chmod +x .git/hooks/pre-commit
   run python pre-commit install-hooks
@@ -62,7 +62,11 @@ EOF
 
 
 test() {
-   run python -e PYTHONPATH=/usr/src/app py.test "$@" 
+   run -e PYTHONPATH=/usr/src/app python py.test "$@"
+}
+
+lint() {
+   run python flake8 "$@"
 }
 
 shell() {
@@ -115,7 +119,7 @@ Usage:
 
     ${BOLD}test${NORMAL}
 
-        Brings up python container, run backend tests using pytest, container removed once tests have finished. 
+        Brings up python container, run backend tests using pytest, container removed once tests have finished.
 
 USAGE
 }
