@@ -4,6 +4,8 @@ ARG huid=9999
 RUN useradd --shell /bin/bash -u $huid -o -c "" -m dockeruser
 
 RUN npm --unsafe-perm=true install -g serverless@1.57.0 serverless-step-functions
- 
+RUN npm install serverless-latest-layer-version --save
+
+
 USER dockeruser
 WORKDIR /usr/src/app
